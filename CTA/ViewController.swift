@@ -32,7 +32,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let initialLocation = CLLocation(latitude: 41.874324, longitude: -87.639754)
+        //let initialLocation = CLLocation(latitude: 41.874324, longitude: -87.639754)
 
         mapView.delegate = self
         
@@ -44,7 +44,19 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             
             coordinate: CLLocationCoordinate2D(latitude: 41.880745, longitude: -87.627696))
         mapView.addAnnotation(stationoName)
-       
+        
+        let initialLocation = CLLocation(latitude: 41.874324, longitude: -87.639754)
+
+        let region = MKCoordinateRegion(
+          center: initialLocation.coordinate,
+          latitudinalMeters: 40000,
+          longitudinalMeters: 50000)
+        mapView.setCameraBoundary(
+          MKMapView.CameraBoundary(coordinateRegion: region),
+          animated: true)
+        
+        let zoomRange = MKMapView.CameraZoomRange(maxCenterCoordinateDistance: 300000)
+        mapView.setCameraZoomRange(zoomRange, animated: true)
         loadInitialData()
         mapView.addAnnotations(stationDirection)
         

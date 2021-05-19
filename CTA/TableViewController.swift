@@ -1,18 +1,13 @@
 //
 //  TableViewController.swift
-//  normanl_hw2
+//  CTA
 //
-//  Created by Luis Norman Jr on 4/28/21.
+//  Created by miguelh on 5/14/21.
 //
 
-
-// Disscusstion: I build a an app that fetched bus numbers and their routes and display that information in a table
 
 
 import UIKit
-
-
-//let url = "http://lapi.transitchicago.com/api/1.0/ttfollow.aspx?key=ff25dab5b7814f4195544c1a924d9dd4&runnumber=826&outputType=JSON"
 
 
 class TableViewController: UITableViewController {
@@ -34,10 +29,6 @@ class TableViewController: UITableViewController {
         
     }
 
-    
-
-
-    
     var dataAvailable = false
     var trains : [Record] = []
     var hourData: [Record] = []
@@ -46,7 +37,8 @@ class TableViewController: UITableViewController {
     // MARK: - Table view data source
 
     
-    override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning()
+    {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
         for train in trains {
@@ -58,36 +50,38 @@ class TableViewController: UITableViewController {
         
     }
     
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
+    override func numberOfSections(in tableView: UITableView) -> Int
+    {
         return 1
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
         return dataAvailable ? trains.count : 15
     }
 
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if (dataAvailable) {
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell
+    {
+        if (dataAvailable)
+        {
             let cell = tableView.dequeueReusableCell(withIdentifier: "LazyTableCell", for: indexPath)
             let currTrain = trains[indexPath.row]
             cell.textLabel?.text = currTrain.arrTime
             cell.detailTextLabel?.text = currTrain.trainLine
             return cell
-        } else {
+        } else
+        {
             let cell = tableView.dequeueReusableCell(withIdentifier: "PlaceholderCell", for: indexPath)
             return cell
         }
         
     }
-    
 
-    
     func loadData() {
         
-        guard let feedURL = URL(string: MyVariables.feed) else {
+        guard let feedURL = URL(string: MyVariables.feed) else
+        {
 
             return
         }
@@ -99,35 +93,40 @@ class TableViewController: UITableViewController {
                 print(error!.localizedDescription)
                 return
             }
-            guard let data = data else { return }
+            guard let data = data else {
+                return
+                
+            }
             
-            print(data)
-
             do {
                 
                 if let json =
-                    try JSONSerialization.jsonObject(with: data, options: []) as? [String:Any] {
+                    try JSONSerialization.jsonObject(with: data, options: []) as? [String:Any]
+                {
                     print(json)
 
                     guard let theFeed = json["ctatt"] as? [String:Any]
-                    else { throw SerializationError.missing("ctatt") }
+                    else { throw SerializationError.missing("ctatt")
+                        
+                    }
 
                     guard let routes = theFeed["eta"] as? [Any]
-                    else { throw SerializationError.missing("eta") }
-                    
-                    //guard let nestedTrains = routes["train"] as? [Any]
-                    //else { throw SerializationError.missing("nested")}
-
+                    else { throw SerializationError.missing("eta")
+                        
+                    }
                     
                     for route in routes {
                         
                         
                         do {
-                            if let currentRoute = route as? [String:Any] {
-                                guard let arrTime = currentRoute["arrT"] as? String else {
+                            if let currentRoute = route as? [String:Any]
+                            {
+                                guard let arrTime = currentRoute["arrT"] as? String else
+                                {
                                     throw SerializationError.missing("arrival time")
                                 }
-                                guard let dest = currentRoute["destNm"] as? String else {
+                                guard let dest = currentRoute["destNm"] as? String else
+                                {
                                     throw SerializationError.missing("end station")
                                 }
                                 
@@ -138,30 +137,34 @@ class TableViewController: UITableViewController {
                                 self.trains.append(updatTracker)
                             }
                         }
-                        //do end
                         
                         
         
-                        catch SerializationError.missing(let msg) {
-                            print("Missing \(msg)")
-                        } catch SerializationError.invalid(let msg, let data) {
-                            print("Invalid \(msg): \(data)")
-                        } catch let error as NSError {
+                        catch SerializationError.missing(let errmsg)
+                        {
+                            print("Missing \(errmsg)")
+                        } catch SerializationError.invalid(let errmsg, let data)
+                        {
+                            print("Invalid \(errmsg): \(data)")
+                        } catch let error as NSError
+                        {
                             print(error.localizedDescription)
                         }
-                    } //for end
-                    
+                    }
                     self.dataAvailable = true
                     DispatchQueue.main.async{
                         self.tableView.reloadData()
                     }
                     
                 }
-            } catch SerializationError.missing(let msg) {
-                print("Missing \(msg)")
-            } catch SerializationError.invalid(let msg, let data) {
-                print("Invalid \(msg): \(data)")
-            } catch let error as NSError {
+            } catch SerializationError.missing(let errmsg)
+            {
+                print("Missing \(errmsg)")
+            } catch SerializationError.invalid(let errmsg, let data)
+            {
+                print("Invalid \(errmsg): \(data)")
+            } catch let error as NSError
+            {
                 print(error.localizedDescription)
             }
         }.resume()

@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		88367C8B264F0B7400E17790 /* BlueLineTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88367C8A264F0B7400E17790 /* BlueLineTableViewController.swift */; };
+		88367C8B264F0B7400E17790 /* LinesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88367C8A264F0B7400E17790 /* LinesTableViewController.swift */; };
 		88367C8D264F0CF600E17790 /* Stations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88367C8C264F0CF600E17790 /* Stations.swift */; };
 		88367C8F264F0EED00E17790 /* DestinationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88367C8E264F0EED00E17790 /* DestinationTableViewController.swift */; };
+		88966FB72652F3A4005C9CE7 /* Locations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88966FB62652F3A4005C9CE7 /* Locations.swift */; };
+		88B3B1B2265437F800429BEF /* StationDirections.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88B3B1B1265437F800429BEF /* StationDirections.swift */; };
+		88B3B1B72654B22A00429BEF /* Directions.geojson in Resources */ = {isa = PBXBuildFile; fileRef = 88B3B1B62654B22A00429BEF /* Directions.geojson */; };
 		88BA075D263C43B300970A4B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BA075C263C43B300970A4B /* AppDelegate.swift */; };
 		88BA075F263C43B300970A4B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BA075E263C43B300970A4B /* SceneDelegate.swift */; };
 		88BA0761263C43B300970A4B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88BA0760263C43B300970A4B /* ViewController.swift */; };
@@ -20,9 +23,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		88367C8A264F0B7400E17790 /* BlueLineTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlueLineTableViewController.swift; sourceTree = "<group>"; };
+		88367C8A264F0B7400E17790 /* LinesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinesTableViewController.swift; sourceTree = "<group>"; };
 		88367C8C264F0CF600E17790 /* Stations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stations.swift; sourceTree = "<group>"; };
 		88367C8E264F0EED00E17790 /* DestinationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DestinationTableViewController.swift; sourceTree = "<group>"; };
+		88966FB62652F3A4005C9CE7 /* Locations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Locations.swift; sourceTree = "<group>"; };
+		88B3B1B1265437F800429BEF /* StationDirections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationDirections.swift; sourceTree = "<group>"; };
+		88B3B1B62654B22A00429BEF /* Directions.geojson */ = {isa = PBXFileReference; lastKnownFileType = text; path = Directions.geojson; sourceTree = "<group>"; };
 		88BA0759263C43B300970A4B /* CTA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CTA.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		88BA075C263C43B300970A4B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		88BA075E263C43B300970A4B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -67,14 +73,17 @@
 				88BA075C263C43B300970A4B /* AppDelegate.swift */,
 				88BA075E263C43B300970A4B /* SceneDelegate.swift */,
 				88BA0760263C43B300970A4B /* ViewController.swift */,
+				88B3B1B1265437F800429BEF /* StationDirections.swift */,
+				88966FB62652F3A4005C9CE7 /* Locations.swift */,
 				88BA0762263C43B300970A4B /* Main.storyboard */,
 				88367C8E264F0EED00E17790 /* DestinationTableViewController.swift */,
-				88367C8A264F0B7400E17790 /* BlueLineTableViewController.swift */,
+				88367C8A264F0B7400E17790 /* LinesTableViewController.swift */,
 				88367C8C264F0CF600E17790 /* Stations.swift */,
 				88C4F2BB263C99B100DBC3B3 /* TableViewController.swift */,
 				88BA0765263C43B300970A4B /* Assets.xcassets */,
 				88BA0767263C43B300970A4B /* LaunchScreen.storyboard */,
 				88BA076A263C43B300970A4B /* Info.plist */,
+				88B3B1B62654B22A00429BEF /* Directions.geojson */,
 			);
 			path = CTA;
 			sourceTree = "<group>";
@@ -137,6 +146,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				88BA0769263C43B300970A4B /* LaunchScreen.storyboard in Resources */,
+				88B3B1B72654B22A00429BEF /* Directions.geojson in Resources */,
 				88BA0766263C43B300970A4B /* Assets.xcassets in Resources */,
 				88BA0764263C43B300970A4B /* Main.storyboard in Resources */,
 			);
@@ -153,8 +163,10 @@
 				88367C8F264F0EED00E17790 /* DestinationTableViewController.swift in Sources */,
 				88BA075D263C43B300970A4B /* AppDelegate.swift in Sources */,
 				88BA075F263C43B300970A4B /* SceneDelegate.swift in Sources */,
-				88367C8B264F0B7400E17790 /* BlueLineTableViewController.swift in Sources */,
+				88367C8B264F0B7400E17790 /* LinesTableViewController.swift in Sources */,
 				88C4F2BC263C99B200DBC3B3 /* TableViewController.swift in Sources */,
+				88966FB72652F3A4005C9CE7 /* Locations.swift in Sources */,
+				88B3B1B2265437F800429BEF /* StationDirections.swift in Sources */,
 				88367C8D264F0CF600E17790 /* Stations.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

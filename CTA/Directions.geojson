@@ -1,0 +1,99 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "Blue: Lasalle & Wacker/Lake",
+        "latitude": "41.886597",
+        "description": "Blue line",
+        "longitude": "-87.63236",
+        "lineName": "blue line",
+        "title": "Blue: Lasalle & Wacker/Lake",
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -87.63236,
+            41.886597
+          
+        ]
+      }
+    },
+    {
+        
+      
+      "type": "Feature",
+      "properties": {
+        "location": "Blue: Halsted & Milwaukee/Grand",
+        "latitude": "41.891517",
+        "description": "Bronze figure of Prince Jonah Kuhio Kalanianaole. Located at Kuhio Beach.",
+        "longitude": "-87.647542",
+        "lineName": "blue line",
+        "title": "Blue: Halsted & Milwaukee/Grand",
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -87.647542,
+            41.891517
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "Blue: UIC-Halsted",
+        "latitude": "41.875559",
+        "description": "Blue line",
+        "longitude": "-87.647267",
+        "lineName": "blue line",
+        "title": "Blue: UIC-Halsted",
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -87.647267,
+          41.875559
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "Red: Halsted & North Ave",
+        "latitude": "41.910853",
+        "description": "Red line",
+        "longitude": "-87.648225",
+        "lineName": "red line",
+        "title": "Red: Halsted & North Ave",
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -87.648225,
+          41.910853
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "location": "Red: Wilson & Broadway",
+        "latitude": "41.965349",
+        "description": "Red line",
+        "longitude": "-87.658101",
+        "lineName": "red line",
+        "title": "Red: Wilson & Broadway",
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+            -87.658101,
+          41.965349
+        ]
+      }
+    }
+    
+        ]
+}

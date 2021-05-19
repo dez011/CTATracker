@@ -34,19 +34,26 @@
                                     <segue destination="4Hu-om-ZI1" kind="showDetail" id="lmw-4V-3cR"/>
                                 </connections>
                             </button>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="gtR-Di-euw">
+                                <rect key="frame" x="20" y="385" width="374" height="398"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </mapView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <connections>
+                        <outlet property="mapView" destination="gtR-Di-euw" id="peD-iB-DgN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="28.794642857142854"/>
         </scene>
-        <!--Blue Line Table View Controller-->
+        <!--Lines Table View Controller-->
         <scene sceneID="NIW-g6-aCR">
             <objects>
-                <tableViewController id="4Hu-om-ZI1" customClass="BlueLineTableViewController" customModule="CTA" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="4Hu-om-ZI1" customClass="LinesTableViewController" customModule="CTA" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="EXz-cO-nHf">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
